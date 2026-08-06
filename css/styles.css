@@ -1,0 +1,121 @@
+/* SHINE DESIGN AI 3D - Premium Styles */
+:root {
+  --neon: #00f0ff;
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --dark: #0a0a0f;
+  --card: #12121a;
+  --border: #1e1e2e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+
+.glass-card {
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(0,240,255,0.3); }
+
+.sidebar-item { color: #9ca3af; }
+.sidebar-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.sidebar-item.active {
+  background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(168,85,247,0.1));
+  color: #fff;
+  border: 1px solid rgba(0,240,255,0.2);
+}
+
+.nav-tab { color: #9ca3af; }
+.nav-tab:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.nav-tab.active {
+  background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(168,85,247,0.15));
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,240,255,0.1);
+}
+
+.dock-item { color: #6b7280; transition: color 0.2s; }
+.dock-item.active, .dock-item:hover { color: var(--neon); }
+
+.view { display: none; }
+.view.active { display: flex; flex-direction: column; }
+#view-dashboard.active, #view-templates.active, #view-image2d.active { display: block; }
+
+.chat-user {
+  background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(168,85,247,0.1));
+  border: 1px solid rgba(0,240,255,0.2);
+}
+.chat-ai { background: rgba(18,18,26,0.8); border: 1px solid rgba(255,255,255,0.06); }
+
+.chat-content h1, .chat-content h2, .chat-content h3 {
+  font-family: 'Space Grotesk', sans-serif; margin: 0.75em 0 0.4em; font-weight: 600;
+}
+.chat-content p { margin: 0.4em 0; line-height: 1.6; }
+.chat-content ul, .chat-content ol { margin: 0.5em 0; padding-left: 1.5em; }
+.chat-content code {
+  background: rgba(0,0,0,0.4); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.85em;
+}
+.chat-content pre {
+  background: #0d0d14; border-radius: 10px; padding: 1em; overflow-x: auto; margin: 0.75em 0;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.chat-content pre code { background: transparent; padding: 0; }
+.chat-content a { color: var(--neon); text-decoration: underline; }
+
+.cursor-glow {
+  pointer-events: none; position: fixed; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%); z-index: 9999;
+}
+
+.spinner {
+  width: 20px; height: 20px; border: 2px solid rgba(0,240,255,0.2);
+  border-top-color: var(--neon); border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.streaming-cursor::after {
+  content: '▋'; animation: blink 1s step-end infinite; color: var(--neon);
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.template-card { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.template-card .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 12px;
+}
+.template-card:hover .overlay { opacity: 1; }
+
+.tool-btn.active { background: rgba(0,240,255,0.15); color: var(--neon); }
+
+.fade-in { animation: fadeIn 0.4s ease forwards; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.design-preview {
+  background: linear-gradient(135deg, #0d0d1a, #1a0a2e);
+  border-radius: 16px; border: 1px solid rgba(0,240,255,0.2);
+  overflow: hidden; position: relative;
+}
+.design-preview::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(0,240,255,0.15), transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(168,85,247,0.12), transparent 50%);
+}
+
+@media (max-width: 768px) {
+  #sidebar { width: 280px; }
+  #fab { bottom: 80px; }
+}
