@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.npm
+
+# Environment (NEVER commit real keys)
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Build / cache
+.DS_Store
+dist/
+.vercel
+*.log
+.cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
